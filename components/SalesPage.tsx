@@ -123,7 +123,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </div>
         </div>
 
-        {/* Hero Image */}
+        {/* Hero Image - Carregamento padrão (Eager) para aparecer rápido */}
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-800">
           <img src="https://i.imgur.com/FxiYsRl.jpg" alt="Lady Soraya Mystery" className="w-full object-cover" />
         </div>
@@ -177,7 +177,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/2o8Kpgj.jpg" alt="Casal Feliz" className="w-full" />
+          <img src="https://i.imgur.com/2o8Kpgj.jpg" alt="Casal Feliz" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         {/* Jessica Story */}
@@ -198,7 +198,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/A6UzkcN.jpg" alt="Andre" className="w-full" />
+          <img src="https://i.imgur.com/A6UzkcN.jpg" alt="Andre" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -212,7 +212,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/mB5bADi.jpg" alt="Tristeza" className="w-full" />
+          <img src="https://i.imgur.com/mB5bADi.jpg" alt="Tristeza" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -228,7 +228,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-purple-500/30">
-          <img src="https://i.imgur.com/E2JblYn.jpg" alt="Lady Soraya Portrait" className="w-full" />
+          <img src="https://i.imgur.com/E2JblYn.jpg" alt="Lady Soraya Portrait" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -249,7 +249,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/0kAi4NR.jpg" alt="Casa no Deserto" className="w-full" />
+          <img src="https://i.imgur.com/0kAi4NR.jpg" alt="Casa no Deserto" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -259,7 +259,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/t5lBzeb.jpg" alt="Porta Misteriosa" className="w-full" />
+          <img src="https://i.imgur.com/t5lBzeb.jpg" alt="Porta Misteriosa" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -282,7 +282,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/3lh5nwV.jpg" alt="Ritual Mágico" className="w-full" />
+          <img src="https://i.imgur.com/3lh5nwV.jpg" alt="Ritual Mágico" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -325,7 +325,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl">
-          <img src="https://i.imgur.com/z43budv.jpg" alt="Esperando Mensagem" className="w-full" />
+          <img src="https://i.imgur.com/z43budv.jpg" alt="Esperando Mensagem" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-10">
@@ -335,7 +335,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl max-w-xs mx-auto">
-          <img src="https://i.imgur.com/M74c34N.png" alt="Mensagem Recebida" className="w-full" />
+          <img src="https://i.imgur.com/M74c34N.png" alt="Mensagem Recebida" className="w-full" loading="lazy" decoding="async" />
         </div>
 
         <div className="space-y-6 text-gray-300 text-lg leading-relaxed mb-12">
@@ -354,13 +354,13 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         {/* Offer Section */}
-        <div className="bg-gradient-to-b from-purple-900/20 to-black p-8 rounded-3xl border border-purple-500/30 mb-16 relative overflow-hidden">
+        <div className="bg-gradient-to-b from-purple-900/20 to-black p-4 md:p-8 rounded-3xl border border-purple-500/30 mb-16 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
           
           <h2 className="text-3xl font-bold text-center text-white mb-8">Agora é a sua vez.</h2>
 
           <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
-            <img src="https://i.imgur.com/G6zb4jR.jpg" alt="Sua Vez" className="w-full" />
+            <img src="https://i.imgur.com/G6zb4jR.jpg" alt="Sua Vez" className="w-full" loading="lazy" decoding="async" />
           </div>
 
           <div className="bg-gray-800/60 p-6 rounded-xl mb-8">
@@ -368,7 +368,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
             <div className="space-y-4">
               <div className="flex gap-4">
                 <span className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>
-                <p className="text-gray-200">Quem quer trazer um amor de volta — um ex que se afastou, esfriou, sumiu, bloqueou ou parece distante.</p>
+                <p className="text-gray-200">Quem quer trazer um amor de volta — alguém que se afastou, esfriou, sumiu, bloqueou ou parece distante.</p>
               </div>
               <div className="flex gap-4">
                 <span className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>
@@ -390,13 +390,13 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
             </p>
           </div>
 
-          {/* Pricing */}
-          <div className="bg-purple-900/30 p-8 rounded-2xl border-2 border-purple-500/50 text-center mb-10 relative">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
+          {/* Pricing - PADDING AJUSTADO PARA MOBILE */}
+          <div className="bg-purple-900/30 p-4 md:p-8 rounded-2xl border-2 border-purple-500/50 text-center mb-10 relative">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg w-max">
               Oferta Sagrada Limitada
             </div>
             
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 mt-2">
               E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico.
             </p>
             
@@ -416,7 +416,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
             </p>
 
             <div className="mb-6">
-                <img src="https://i.imgur.com/rGTHQev.jpg" alt="Conexão Eterna" className="w-full rounded-lg shadow-lg" />
+                <img src="https://i.imgur.com/rGTHQev.jpg" alt="Conexão Eterna" className="w-full rounded-lg shadow-lg" loading="lazy" decoding="async" />
             </div>
 
             <div className="bg-black/40 p-6 rounded-xl text-left mb-8 space-y-3">
@@ -478,14 +478,15 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         {/* Testimonials Section */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-center text-white mb-2">Veja algumas almas gêmeas que a Lady Soraya ajudou</h2>
-          <p className="text-center text-gray-400 mb-8">Veja o que elas estão dizendo...</p>
+          <p className="text-center text-gray-400 mb-8">Homens e mulheres que recuperaram o amor...</p>
           
-          <div className="overflow-hidden relative">
-            <div className="flex gap-4 animate-[scroll_20s_linear_infinite] w-[200%]">
+          <div className="overflow-hidden relative w-full">
+            {/* CARROSEL CORRIGIDO: usa w-max e flex-nowrap para não quebrar a largura e garantir a matemática da animação */}
+            <div className="flex gap-4 animate-[scroll_40s_linear_infinite] w-max hover:pause flex-nowrap">
               {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, idx) => (
                 <div key={`${testimonial.id}-${idx}`} className="w-[300px] bg-gray-800 p-5 rounded-xl border border-gray-700 flex-shrink-0">
                   <div className="flex items-center gap-3 mb-3">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-purple-500" />
+                    <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-purple-500 object-cover" loading="lazy" decoding="async" />
                     <div>
                       <p className="font-bold text-sm text-white">{testimonial.name}</p>
                       <div className="flex text-yellow-500">
@@ -543,14 +544,14 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
             <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
                 <h3 className="font-bold text-purple-300 mb-2">O que torna o feitiço de Lady Soraya diferente?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                    Outros feitiços tentam forçar o amor. Mas Lady Soraya alinha as energias do homem com a vibração natural do amor e da atração. Assim, ele escolhe te amar — de forma pura e verdadeira.
+                    Outros feitiços tentam forçar o amor. Mas Lady Soraya alinha as energias da pessoa amada com a vibração natural do amor e da atração. Assim, ele(a) escolhe te amar — de forma pura e verdadeira.
                 </p>
             </div>
 
             <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
                 <h3 className="font-bold text-purple-300 mb-2">Em quanto tempo funciona?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                    Algumas mulheres sentem os efeitos no mesmo dia. Outras, em poucos dias. Mas o resultado sempre vem.
+                    Algumas pessoas sentem os efeitos no mesmo dia. Outras, em poucos dias. Mas o resultado sempre vem.
                 </p>
             </div>
 
@@ -594,6 +595,9 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         @keyframes scroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
+        }
+        .pause {
+          animation-play-state: paused;
         }
       `}</style>
     </div>
