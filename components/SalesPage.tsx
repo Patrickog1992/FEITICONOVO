@@ -53,7 +53,7 @@ const SocialProofPopup = () => {
         isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0 pointer-events-none'
       }`}
     >
-      <div className="bg-gray-900/95 backdrop-blur-md border-l-4 border-green-500 rounded-r-lg shadow-2xl p-3 flex items-center gap-3 max-w-[280px]">
+      <div className="bg-[#1a1008]/95 backdrop-blur-md border-l-4 border-green-500 rounded-r-lg shadow-2xl p-3 flex items-center gap-3 max-w-[280px]">
         <div className="bg-green-500/20 p-2 rounded-full flex-shrink-0">
           <Sparkles className="w-4 h-4 text-green-400" />
         </div>
@@ -94,15 +94,16 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#0f0f0f] text-gray-100 font-poppins pb-20 relative overflow-x-hidden">
+    // Updated background to a Dark Desert Night Gradient (Warm Browns to Black)
+    <div className="w-full min-h-screen bg-gradient-to-b from-[#2e1d15] via-[#1c100b] to-[#0a0503] text-gray-100 font-poppins pb-20 relative overflow-x-hidden">
       
       {/* Social Proof Popup Component */}
       <SocialProofPopup />
 
       {/* Top Banner - Estático (rola junto com o texto) */}
-      <div className="relative z-10 bg-red-600 p-3 text-center shadow-lg">
+      <div className="relative z-10 bg-[#4a1c13] border-b border-[#6d2a1c] p-3 text-center shadow-lg">
         <p className="text-sm font-medium text-white">
-          ⚡ ATENÇÃO: No dia <span className="text-yellow-300 font-bold">{currentDate}</span>, as energias cósmicas estão mais abertas e o feitiço de Lady Soraya será até 3x mais forte, aproveite!
+          ⚡ ATENÇÃO: No dia <span className="text-yellow-300 font-bold">{currentDate}</span>, as energias do deserto estão abertas e o feitiço de Lady Soraya será até 3x mais forte!
         </p>
       </div>
 
@@ -110,13 +111,13 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         
         {/* Headline Section */}
         <div className="text-center mb-8">
-          <p className="text-purple-400 uppercase tracking-widest text-xl font-bold mb-4 drop-shadow-md">Último desejo de Lady Soraya</p>
+          <p className="text-orange-400 uppercase tracking-widest text-xl font-bold mb-4 drop-shadow-md">Último desejo de Lady Soraya</p>
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
             Ajudar 3737 pessoas a encontrarem o amor de suas vidas, seja ele um amor perdido… ou um novo amor predestinado.
           </h1>
           
-          <div className="bg-gray-800/50 p-6 rounded-xl border border-purple-500/30 mb-8 shadow-xl">
-            <h3 className="text-xl font-bold text-purple-300 mb-2">A Sacerdotisa do Amor revela:</h3>
+          <div className="bg-[#1a1008]/80 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 mb-8 shadow-xl">
+            <h3 className="text-xl font-bold text-orange-300 mb-2">A Sacerdotisa do Deserto revela:</h3>
             <p className="text-lg text-gray-200">
               💘 O feitiço proibido capaz de despertar um amor tão poderoso que une duas almas recuperando o que foi perdido ou atraindo alguém totalmente novo e destinado a você.
             </p>
@@ -124,7 +125,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         {/* Hero Image - Carregamento Prioritário (Eager) */}
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/50">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/40">
           <img 
             src="https://i.imgur.com/FxiYsRl.jpg" 
             alt="Lady Soraya Mystery" 
@@ -146,7 +147,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           <p>
             Mas antes de continuar...
           </p>
-          <div className="bg-red-950/30 p-6 rounded-xl border-l-4 border-red-600 my-6 shadow-lg">
+          <div className="bg-red-950/40 backdrop-blur-sm p-6 rounded-xl border-l-4 border-red-600 my-6 shadow-lg">
             <p className="font-bold text-red-200 italic">
               Quero que você entenda que o feitiço de amor que vou te revelar é irreversível. Uma vez que você use este feitiço proibido na pessoa que escolher... Não há volta. A única forma de quebrar este feitiço é — a morte. Ou seja, será mesmo até o fim.
             </p>
@@ -183,7 +184,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/2o8Kpgj.jpg" alt="Casal Feliz" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -204,7 +205,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/A6UzkcN.jpg" alt="Andre" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -218,7 +219,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           <p className="font-bold text-white">Antes que eu pudesse entender o que estava acontecendo...</p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/mB5bADi.jpg" alt="Tristeza" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -255,7 +256,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           <p className="font-bold text-white">Aquele seria o dia que mudaria minha vida amorosa pra sempre.</p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/0kAi4NR.jpg" alt="Casa no Deserto" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -265,7 +266,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/t5lBzeb.jpg" alt="Porta Misteriosa" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -288,7 +289,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </div>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/3lh5nwV.jpg" alt="Ritual Mágico" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -331,7 +332,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl border border-orange-900/20">
           <img src="https://i.imgur.com/z43budv.jpg" alt="Esperando Mensagem" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -341,7 +342,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </p>
         </div>
 
-        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl max-w-xs mx-auto border border-gray-700/30">
+        <div className="mb-10 rounded-2xl overflow-hidden shadow-2xl max-w-xs mx-auto border border-orange-900/20">
           <img src="https://i.imgur.com/M74c34N.png" alt="Mensagem Recebida" className="w-full" loading="lazy" decoding="async" />
         </div>
 
@@ -361,24 +362,24 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         {/* Offer Section */}
-        <div className="bg-gradient-to-b from-purple-900/20 to-black p-4 md:p-8 rounded-3xl border border-purple-500/30 mb-16 relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div className="bg-gradient-to-b from-[#3e2723]/60 to-black/80 backdrop-blur-md p-4 md:p-8 rounded-3xl border border-[#5d4037]/50 mb-16 relative overflow-hidden shadow-2xl">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
           
           <h2 className="text-3xl font-bold text-center text-white mb-8 drop-shadow-md">Agora é a sua vez.</h2>
 
-          <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-purple-500/20">
+          <div className="mb-8 rounded-xl overflow-hidden shadow-lg border border-orange-500/20">
             <img src="https://i.imgur.com/G6zb4jR.jpg" alt="Sua Vez" className="w-full" loading="lazy" decoding="async" />
           </div>
 
-          <div className="bg-gray-800/60 p-6 rounded-xl mb-8 border border-gray-700/50">
-            <h3 className="text-xl font-bold text-purple-300 mb-4">💗 As pessoas que procuram Lady Soraya hoje se dividem em dois caminhos:</h3>
+          <div className="bg-[#1a1008]/80 p-6 rounded-xl mb-8 border border-[#3e2723]/50">
+            <h3 className="text-xl font-bold text-orange-300 mb-4">💗 As pessoas que procuram Lady Soraya hoje se dividem em dois caminhos:</h3>
             <div className="space-y-4">
               <div className="flex gap-4">
-                <span className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">1</span>
+                <span className="bg-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">1</span>
                 <p className="text-gray-200">Quem quer trazer um amor de volta — alguém que se afastou, esfriou, sumiu, bloqueou ou parece distante.</p>
               </div>
               <div className="flex gap-4">
-                <span className="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">2</span>
+                <span className="bg-orange-700 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0 shadow-lg">2</span>
                 <p className="text-gray-200">Quem quer atrair um novo amor verdadeiro — pessoas solteiras, cansadas de encontros vazios, que sentem que nunca encontram alguém compatível ou “feito pra elas”.</p>
               </div>
             </div>
@@ -398,8 +399,8 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
           </div>
 
           {/* Pricing - PADDING AJUSTADO PARA MOBILE */}
-          <div className="bg-purple-900/30 p-4 md:p-8 rounded-2xl border-2 border-purple-500/50 text-center mb-10 relative shadow-xl">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg w-max">
+          <div className="bg-[#2e1d15]/80 backdrop-blur-sm p-4 md:p-8 rounded-2xl border-2 border-orange-500/30 text-center mb-10 relative shadow-xl">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-700 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg w-max">
               Oferta Sagrada Limitada
             </div>
             
@@ -411,7 +412,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
                <span className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 drop-shadow-sm">
                  R$ 37,37
                </span>
-               <span className="text-purple-300 text-sm mt-2">Um número sagrado para as 3737 pessoas escolhidas</span>
+               <span className="text-orange-200 text-sm mt-2">Um número sagrado para as 3737 pessoas escolhidas</span>
             </div>
 
             <p className="text-gray-200 font-medium mb-6">
@@ -426,7 +427,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
                 <img src="https://i.imgur.com/rGTHQev.jpg" alt="Conexão Eterna" className="w-full rounded-lg shadow-lg" loading="lazy" decoding="async" />
             </div>
 
-            <div className="bg-black/40 p-6 rounded-xl text-left mb-8 space-y-3 border border-gray-700/50">
+            <div className="bg-black/40 p-6 rounded-xl text-left mb-8 space-y-3 border border-orange-900/30">
               <p className="font-bold text-red-400 mb-2">Mas lembre-se: Este feitiço é poderoso e permanente. Por isso, só está disponível para pessoas que concordam com os seguintes termos:</p>
               <div className="flex gap-2 items-start">
                 <CheckCircle className="w-5 h-5 text-purple-500 mt-0.5 shrink-0" />
@@ -491,7 +492,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
             {/* CARROSEL CORRIGIDO: usa w-max e flex-nowrap para não quebrar a largura e garantir a matemática da animação */}
             <div className="flex gap-4 animate-[scroll_40s_linear_infinite] w-max hover:pause flex-nowrap">
               {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="w-[300px] bg-gray-800 p-5 rounded-xl border border-gray-700 flex-shrink-0">
+                <div key={`${testimonial.id}-${idx}`} className="w-[300px] bg-[#1a1008]/80 backdrop-blur-sm p-5 rounded-xl border border-gray-700 flex-shrink-0">
                   <div className="flex items-center gap-3 mb-3">
                     <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 rounded-full border-2 border-purple-500 object-cover" loading="lazy" decoding="async" />
                     <div>
@@ -520,7 +521,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         {/* Guarantee Section */}
-        <div className="bg-gray-800 rounded-2xl p-8 border border-green-500/30 mb-16 text-center shadow-lg">
+        <div className="bg-[#1a1008]/80 backdrop-blur-sm rounded-2xl p-8 border border-green-500/30 mb-16 text-center shadow-lg">
             <div className="flex justify-center mb-4">
                 <ShieldCheck className="w-16 h-16 text-green-500" />
             </div>
@@ -541,36 +542,36 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         <div className="mb-20 space-y-6">
             <h2 className="text-3xl font-bold text-center text-white mb-8 drop-shadow-md">Perguntas Frequentes</h2>
             
-            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                <h3 className="font-bold text-purple-300 mb-2 flex items-center gap-2">🔮 Como você receberá o seu feitiço?</h3>
+            <div className="bg-[#1a1008]/80 backdrop-blur-sm rounded-xl p-6 border border-orange-900/30">
+                <h3 className="font-bold text-orange-300 mb-2 flex items-center gap-2">🔮 Como você receberá o seu feitiço?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                     Após a confirmação do seu pedido, Lady Soraya realizará pessoalmente o seu feitiço de amor, seguindo o nome e as informações que você fornecer no formulário. Cada ritual é feito de forma individual e personalizada. Além disso, uma versão especial do feitiço será enviada diretamente para o seu e-mail cadastrado.
                 </p>
             </div>
 
-            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                <h3 className="font-bold text-purple-300 mb-2">O que torna o feitiço de Lady Soraya diferente?</h3>
+            <div className="bg-[#1a1008]/80 backdrop-blur-sm rounded-xl p-6 border border-orange-900/30">
+                <h3 className="font-bold text-orange-300 mb-2">O que torna o feitiço de Lady Soraya diferente?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                     Outros feitiços tentam forçar o amor. Mas Lady Soraya alinha as energias da pessoa amada com a vibração natural do amor e da atração. Assim, ele(a) escolhe te amar — de forma pura e verdadeira.
                 </p>
             </div>
 
-            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                <h3 className="font-bold text-purple-300 mb-2">Em quanto tempo funciona?</h3>
+            <div className="bg-[#1a1008]/80 backdrop-blur-sm rounded-xl p-6 border border-orange-900/30">
+                <h3 className="font-bold text-orange-300 mb-2">Em quanto tempo funciona?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                     Algumas pessoas sentem os efeitos no mesmo dia. Outras, em poucos dias. Mas o resultado sempre vem.
                 </p>
             </div>
 
-            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                <h3 className="font-bold text-purple-300 mb-2">Como faço para lançar o feitiço?</h3>
+            <div className="bg-[#1a1008]/80 backdrop-blur-sm rounded-xl p-6 border border-orange-900/30">
+                <h3 className="font-bold text-orange-300 mb-2">Como faço para lançar o feitiço?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                     Clique no botão “Lançar Feitiço Agora”. Responda um breve quiz (para personalizar o ritual). Depois, complete o formulário seguro. E, em 24 horas, Lady Soraya lançará o feitiço em seu nome.
                 </p>
             </div>
 
-            <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                <h3 className="font-bold text-purple-300 mb-2">O feitiço funciona mesmo se eu não tiver ninguém em mente?</h3>
+            <div className="bg-[#1a1008]/80 backdrop-blur-sm rounded-xl p-6 border border-orange-900/30">
+                <h3 className="font-bold text-orange-300 mb-2">O feitiço funciona mesmo se eu não tiver ninguém em mente?</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">
                     Sim. Nesse caso, Lady Soraya realiza o ritual de “chamada amorosa”, que atrai exatamente a alma que combina com você.
                 </p>
@@ -578,7 +579,7 @@ const SalesPage: React.FC<SalesPageProps> = ({ onStart }) => {
         </div>
 
         {/* Final CTA */}
-        <div className="bg-purple-900/30 backdrop-blur-md border-t border-purple-500/20 py-10 px-6 text-center">
+        <div className="bg-[#2e1d15]/80 backdrop-blur-md border-t border-orange-500/20 py-10 px-6 text-center">
             <h2 className="text-2xl font-bold text-white mb-4 drop-shadow-md">✨ Lance seu feitiço de amor agora. ✨</h2>
             <p className="text-gray-400 mb-8">Funciona ainda hoje à noite.</p>
             
