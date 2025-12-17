@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export enum AppStep {
@@ -9,7 +10,9 @@ export enum AppStep {
   ANALYSIS = 'ANALYSIS',
   CRISIS_RESULT = 'CRISIS_RESULT',
   CONNECTING_LOADER = 'CONNECTING_LOADER',
-  CHAT = 'CHAT'
+  CHAT = 'CHAT',
+  FIRE_RITUAL = 'FIRE_RITUAL',
+  BINDING_ALTAR = 'BINDING_ALTAR'
 }
 
 export interface QuizQuestion {

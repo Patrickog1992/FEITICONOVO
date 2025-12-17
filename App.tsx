@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Chat from './components/Chat';
 import Quiz from './components/Quiz';
@@ -7,30 +8,22 @@ import ConnectingLoader from './components/ConnectingLoader';
 import SalesPage from './components/SalesPage';
 import RitualAgreement from './components/RitualAgreement';
 import PreQuiz from './components/PreQuiz';
+import FireRitual from './components/FireRitual';
+import BindingAltar from './components/BindingAltar';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Changed initial state to PRE_QUIZ
-  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.PRE_QUIZ);
+  // Inicia no QUIZ conforme solicitado
+  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.QUIZ);
   const [userData, setUserData] = useState<UserData>({
     name: '',
     age: '',
     partnerName: ''
   });
 
-  // Ensure scroll to top on step change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentStep]);
-
-  const handlePreQuizComplete = () => {
-    setCurrentStep(AppStep.SALES_PAGE);
-  };
-
-  const handleSalesStart = () => {
-    // Goes to RITUAL_AGREEMENT
-    setCurrentStep(AppStep.RITUAL_AGREEMENT);
-  };
 
   const handleQuizComplete = () => {
     setCurrentStep(AppStep.USER_INPUT);
@@ -46,7 +39,12 @@ const App: React.FC = () => {
   };
 
   const handleLoaderComplete = () => {
-    setCurrentStep(AppStep.CHAT);
+    // Após o carregamento, vai para a página principal do Ritual (Sales Page completa)
+    setCurrentStep(AppStep.FIRE_RITUAL);
+  };
+
+  const handleStartBinding = () => {
+    setCurrentStep(AppStep.BINDING_ALTAR);
   };
 
   const handleUpdatePartner = (name: string) => {
@@ -57,24 +55,8 @@ const App: React.FC = () => {
     setUserData(prev => ({ ...prev, name, age }));
   };
 
-  const handleRitualComplete = () => {
-    // This function might not be called if RitualAgreement redirects externally
-  };
-
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-100 font-poppins">
-      {currentStep === AppStep.PRE_QUIZ && (
-        <PreQuiz onComplete={handlePreQuizComplete} />
-      )}
-
-      {currentStep === AppStep.SALES_PAGE && (
-        <SalesPage onStart={handleSalesStart} />
-      )}
-
-      {currentStep === AppStep.RITUAL_AGREEMENT && (
-        <RitualAgreement onComplete={handleRitualComplete} />
-      )}
-
       {currentStep === AppStep.QUIZ && (
         <Quiz onComplete={handleQuizComplete} />
       )}
@@ -94,6 +76,15 @@ const App: React.FC = () => {
         />
       )}
 
+      {currentStep === AppStep.FIRE_RITUAL && (
+        <FireRitual onStartBinding={handleStartBinding} />
+      )}
+
+      {currentStep === AppStep.BINDING_ALTAR && (
+        <BindingAltar />
+      )}
+
+      {/* Passos secundários mantidos para integridade do sistema */}
       {currentStep === AppStep.CHAT && (
         <Chat 
           userData={userData}
@@ -101,6 +92,8 @@ const App: React.FC = () => {
           onUpdateUser={handleUpdateUser}
         />
       )}
+      {currentStep === AppStep.PRE_QUIZ && <PreQuiz onComplete={() => setCurrentStep(AppStep.SALES_PAGE)} />}
+      {currentStep === AppStep.SALES_PAGE && <SalesPage onStart={() => setCurrentStep(AppStep.RITUAL_AGREEMENT)} />}
     </div>
   );
 };
