@@ -13,7 +13,7 @@ import BindingAltar from './components/BindingAltar';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Inicia no QUIZ conforme solicitado
+  // Conforme solicitado, o começo é o QUIZ
   const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.QUIZ);
   const [userData, setUserData] = useState<UserData>({
     name: '',
@@ -22,7 +22,13 @@ const App: React.FC = () => {
   });
 
   useEffect(() => {
+    // Scroll to top on step change
     window.scrollTo(0, 0);
+
+    // Pequeno truque para permitir acesso direto via hash (ex: /#ritual)
+    if (window.location.hash === '#ritual') {
+        setCurrentStep(AppStep.FIRE_RITUAL);
+    }
   }, [currentStep]);
 
   const handleQuizComplete = () => {
@@ -39,7 +45,7 @@ const App: React.FC = () => {
   };
 
   const handleLoaderComplete = () => {
-    // Após o carregamento, vai para a página principal do Ritual (Sales Page completa)
+    // Após o carregamento, vai para a página do Ritual da Chama (Long Copy completa)
     setCurrentStep(AppStep.FIRE_RITUAL);
   };
 
@@ -84,7 +90,7 @@ const App: React.FC = () => {
         <BindingAltar />
       )}
 
-      {/* Passos secundários mantidos para integridade do sistema */}
+      {/* Outros passos mantidos para integridade */}
       {currentStep === AppStep.CHAT && (
         <Chat 
           userData={userData}
@@ -92,8 +98,6 @@ const App: React.FC = () => {
           onUpdateUser={handleUpdateUser}
         />
       )}
-      {currentStep === AppStep.PRE_QUIZ && <PreQuiz onComplete={() => setCurrentStep(AppStep.SALES_PAGE)} />}
-      {currentStep === AppStep.SALES_PAGE && <SalesPage onStart={() => setCurrentStep(AppStep.RITUAL_AGREEMENT)} />}
     </div>
   );
 };
