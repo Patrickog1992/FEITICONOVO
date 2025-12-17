@@ -13,15 +13,16 @@ import BindingAltar from './components/BindingAltar';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Alterado para AppStep.FIRE_RITUAL para você ver a página imediatamente ao abrir o site
-  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.FIRE_RITUAL);
+  // Agora o site começa no PRE_QUIZ (Início do fluxo)
+  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.PRE_QUIZ);
+  
   const [userData, setUserData] = useState<UserData>({
     name: '',
     age: '',
     partnerName: ''
   });
 
-  // Mantém a detecção automática por URL caso você queira usar os dois métodos
+  // Lógica para detectar se o usuário quer ver o Ritual do Fogo via link direto
   useEffect(() => {
     const path = window.location.pathname.toLowerCase();
     if (path === '/ritualdofogo' || path.endsWith('/ritualdofogo')) {
@@ -67,7 +68,8 @@ const App: React.FC = () => {
   };
 
   const handleRitualComplete = () => {
-    // Lógica pós-ritual
+    // Após a vela/acordo, vai para o Quiz principal ("Quais sentimentos...")
+    setCurrentStep(AppStep.QUIZ);
   };
 
   const handleStartBinding = () => {
