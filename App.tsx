@@ -10,12 +10,10 @@ import RitualAgreement from './components/RitualAgreement';
 import PreQuiz from './components/PreQuiz';
 import FireRitual from './components/FireRitual';
 import BindingAltar from './components/BindingAltar';
-import Fogo from './components/Fogo';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Definido FOGO como inicial para você ver direto na tela
-  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.FOGO);
+  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.PRE_QUIZ);
   
   const [userData, setUserData] = useState<UserData>({
     name: '',
@@ -28,8 +26,6 @@ const App: React.FC = () => {
       const path = window.location.pathname.toLowerCase();
       if (path.includes('/ritualdofogo')) {
         setCurrentStep(AppStep.FIRE_RITUAL);
-      } else if (path.includes('/fogo')) {
-        setCurrentStep(AppStep.FOGO);
       }
     };
 
@@ -126,10 +122,6 @@ const App: React.FC = () => {
 
       {currentStep === AppStep.FIRE_RITUAL && (
         <FireRitual onStartBinding={handleStartBinding} />
-      )}
-
-      {currentStep === AppStep.FOGO && (
-        <Fogo />
       )}
 
       {currentStep === AppStep.BINDING_ALTAR && (
