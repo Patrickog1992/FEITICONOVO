@@ -13,7 +13,7 @@ import BindingAltar from './components/BindingAltar';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Agora o site começa no PRE_QUIZ (Início do fluxo)
+  // Inicia obrigatoriamente no PRE_QUIZ por padrão
   const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.PRE_QUIZ);
   
   const [userData, setUserData] = useState<UserData>({
@@ -22,12 +22,22 @@ const App: React.FC = () => {
     partnerName: ''
   });
 
-  // Lógica para detectar se o usuário quer ver o Ritual do Fogo via link direto
+  // Lógica de roteamento manual para a página específica
   useEffect(() => {
-    const path = window.location.pathname.toLowerCase();
-    if (path === '/ritualdofogo' || path.endsWith('/ritualdofogo')) {
-      setCurrentStep(AppStep.FIRE_RITUAL);
-    }
+    const checkPath = () => {
+      const path = window.location.pathname.toLowerCase();
+      // Se a URL for /ritualdofogo, muda o estado para o Ritual do Fogo
+      if (path.includes('/ritualdofogo')) {
+        setCurrentStep(AppStep.FIRE_RITUAL);
+      }
+    };
+
+    // Executa na montagem
+    checkPath();
+    
+    // Escuta mudanças no histórico (navegação do navegador)
+    window.addEventListener('popstate', checkPath);
+    return () => window.removeEventListener('popstate', checkPath);
   }, []);
 
   useEffect(() => {
@@ -68,7 +78,6 @@ const App: React.FC = () => {
   };
 
   const handleRitualComplete = () => {
-    // Após a vela/acordo, vai para o Quiz principal ("Quais sentimentos...")
     setCurrentStep(AppStep.QUIZ);
   };
 
