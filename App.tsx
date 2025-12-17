@@ -13,23 +13,33 @@ import BindingAltar from './components/BindingAltar';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Conforme solicitado, o começo é o QUIZ
-  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.QUIZ);
+  // Alterado para AppStep.FIRE_RITUAL para você ver a página imediatamente ao abrir o site
+  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.FIRE_RITUAL);
   const [userData, setUserData] = useState<UserData>({
     name: '',
     age: '',
     partnerName: ''
   });
 
+  // Mantém a detecção automática por URL caso você queira usar os dois métodos
   useEffect(() => {
-    // Scroll to top on step change
-    window.scrollTo(0, 0);
-
-    // Pequeno truque para permitir acesso direto via hash (ex: /#ritual)
-    if (window.location.hash === '#ritual') {
-        setCurrentStep(AppStep.FIRE_RITUAL);
+    const path = window.location.pathname.toLowerCase();
+    if (path === '/ritualdofogo' || path.endsWith('/ritualdofogo')) {
+      setCurrentStep(AppStep.FIRE_RITUAL);
     }
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [currentStep]);
+
+  const handlePreQuizComplete = () => {
+    setCurrentStep(AppStep.SALES_PAGE);
+  };
+
+  const handleSalesStart = () => {
+    setCurrentStep(AppStep.RITUAL_AGREEMENT);
+  };
 
   const handleQuizComplete = () => {
     setCurrentStep(AppStep.USER_INPUT);
@@ -45,12 +55,7 @@ const App: React.FC = () => {
   };
 
   const handleLoaderComplete = () => {
-    // Após o carregamento, vai para a página do Ritual da Chama (Long Copy completa)
-    setCurrentStep(AppStep.FIRE_RITUAL);
-  };
-
-  const handleStartBinding = () => {
-    setCurrentStep(AppStep.BINDING_ALTAR);
+    setCurrentStep(AppStep.CHAT);
   };
 
   const handleUpdatePartner = (name: string) => {
@@ -61,8 +66,28 @@ const App: React.FC = () => {
     setUserData(prev => ({ ...prev, name, age }));
   };
 
+  const handleRitualComplete = () => {
+    // Lógica pós-ritual
+  };
+
+  const handleStartBinding = () => {
+    setCurrentStep(AppStep.BINDING_ALTAR);
+  };
+
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-gray-100 font-poppins">
+      {currentStep === AppStep.PRE_QUIZ && (
+        <PreQuiz onComplete={handlePreQuizComplete} />
+      )}
+
+      {currentStep === AppStep.SALES_PAGE && (
+        <SalesPage onStart={handleSalesStart} />
+      )}
+
+      {currentStep === AppStep.RITUAL_AGREEMENT && (
+        <RitualAgreement onComplete={handleRitualComplete} />
+      )}
+
       {currentStep === AppStep.QUIZ && (
         <Quiz onComplete={handleQuizComplete} />
       )}
@@ -82,21 +107,20 @@ const App: React.FC = () => {
         />
       )}
 
-      {currentStep === AppStep.FIRE_RITUAL && (
-        <FireRitual onStartBinding={handleStartBinding} />
-      )}
-
-      {currentStep === AppStep.BINDING_ALTAR && (
-        <BindingAltar />
-      )}
-
-      {/* Outros passos mantidos para integridade */}
       {currentStep === AppStep.CHAT && (
         <Chat 
           userData={userData}
           onUpdatePartner={handleUpdatePartner}
           onUpdateUser={handleUpdateUser}
         />
+      )}
+
+      {currentStep === AppStep.FIRE_RITUAL && (
+        <FireRitual onStartBinding={handleStartBinding} />
+      )}
+
+      {currentStep === AppStep.BINDING_ALTAR && (
+        <BindingAltar />
       )}
     </div>
   );
