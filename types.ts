@@ -12,7 +12,8 @@ export enum AppStep {
   CONNECTING_LOADER = 'CONNECTING_LOADER',
   CHAT = 'CHAT',
   FIRE_RITUAL = 'FIRE_RITUAL',
-  BINDING_ALTAR = 'BINDING_ALTAR'
+  BINDING_ALTAR = 'BINDING_ALTAR',
+  FOGO = 'FOGO'
 }
 
 export interface QuizQuestion {
