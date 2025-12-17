@@ -9,12 +9,13 @@ import SalesPage from './components/SalesPage';
 import RitualAgreement from './components/RitualAgreement';
 import PreQuiz from './components/PreQuiz';
 import FireRitual from './components/FireRitual';
+import Fogo from './components/Fogo';
 import BindingAltar from './components/BindingAltar';
 import { AppStep, UserData } from './types';
 
 const App: React.FC = () => {
-  // Inicia obrigatoriamente no PRE_QUIZ por padrão
-  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.PRE_QUIZ);
+  // Alterado para FOGO para exibição imediata conforme solicitado
+  const [currentStep, setCurrentStep] = useState<AppStep>(AppStep.FOGO);
   
   const [userData, setUserData] = useState<UserData>({
     name: '',
@@ -22,20 +23,17 @@ const App: React.FC = () => {
     partnerName: ''
   });
 
-  // Lógica de roteamento manual para a página específica
   useEffect(() => {
     const checkPath = () => {
       const path = window.location.pathname.toLowerCase();
-      // Se a URL for /ritualdofogo, muda o estado para o Ritual do Fogo
       if (path.includes('/ritualdofogo')) {
         setCurrentStep(AppStep.FIRE_RITUAL);
+      } else if (path.includes('/fogo')) {
+        setCurrentStep(AppStep.FOGO);
       }
     };
 
-    // Executa na montagem
     checkPath();
-    
-    // Escuta mudanças no histórico (navegação do navegador)
     window.addEventListener('popstate', checkPath);
     return () => window.removeEventListener('popstate', checkPath);
   }, []);
@@ -128,6 +126,10 @@ const App: React.FC = () => {
 
       {currentStep === AppStep.FIRE_RITUAL && (
         <FireRitual onStartBinding={handleStartBinding} />
+      )}
+
+      {currentStep === AppStep.FOGO && (
+        <Fogo />
       )}
 
       {currentStep === AppStep.BINDING_ALTAR && (
