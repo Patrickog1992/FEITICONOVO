@@ -1,7 +1,9 @@
 import React from 'react';
 
 export enum AppStep {
+  PRE_QUIZ = 'PRE_QUIZ',
   SALES_PAGE = 'SALES_PAGE',
+  RITUAL_AGREEMENT = 'RITUAL_AGREEMENT',
   QUIZ = 'QUIZ',
   USER_INPUT = 'USER_INPUT',
   ANALYSIS = 'ANALYSIS',
